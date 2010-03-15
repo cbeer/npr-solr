@@ -1,0 +1,15 @@
+h2 a:link { color: #B4241B; }
+h2 a:visited { color: #24341B; }
+
+.category_primary:before { content: " / "; }
+.category_primary:empty:before { content: ""; }
+
+.author:before { content: " / "; }
+.author:empty:before { content: ""; }
+
+.hl:before { content: " ..."; }
+.hl:after { content: " ..."; }
+.hl { font-size: 85%; padding-top: 0.6em;}
+.hl em { font-weight: bold;}
+
+.description_hl em { font-weight: bold; }

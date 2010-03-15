@@ -1,0 +1,34 @@
+<dataConfig>
+        <dataSource name="nprapi" type="URLDataSource" encoding="UTF-8" connectionTimeout="5000" readTimeout="10000"/>
+        <document>
+                <entity name="nprapi"
+                        pk="id"
+                        url="http://api.npr.org/query?numResults=20&amp;fields=all&amp;output=nprml&amp;apiKey=[redacted]&amp;startNum=${dataimporter.request.startNum}"
+                        processor="XPathEntityProcessor"
+                        forEach="/nprml/list/story"
+                        transformer="DateFormatTransformer">
+
+                        <field column="id"        xpath="/nprml/list/story/@id" />
+                        <field column="link"         xpath="/nprml/list/story/link[@type='html']" />
+                        <field column="api"         xpath="/nprml/list/story/link[@type='api']" />
+                        <field column="title"        xpath="/nprml/list/story/title" />
+                        <field column="description"  xpath="/nprml/list/story/teaser" />
+                        <field column="author"      xpath="/nprml/list/story/byline/name" />
+                        <field column="organization"      xpath="/nprml/list/story/organization/name" />
+                        <field column="subject" xpath="/nprml/list/story/priorityKeywords" />
+                        <field column="keywords" xpath="/nprml/list/story/keywords" />
+                        <field column="category" xpath="/nprml/list/story/parent[@type='topic']/title" />
+                        <field column="category_primary" xpath="/nprml/list/story/parent[@type='primaryTopic']/title" />
+                        <field column="related" xpath="/nprml/list/story/relatedLink/link[@type='api']" />
+                        <field column="show" xpath="/nprml/list/story/show/program" />
+                        <field column="show_slug" xpath="/nprml/list/story/show/program/@code" />
+
+			<field column="extent" xpath="/nprml/list/story/audio/duration" />
+			<field column="media" xpath="/nprml/list/story/audio/format/mp3" />
+			<field column="thumbnail" xpath="/nprml/list/story/thumbnail/large" />
+
+                        <field column="last_modified" xpath="/nprml/list/story/storyDate" dateTimeFormat="EEE, dd MMM yyyy HH:mm:ss Z" />
+                        <field column="transcript" xpath="/nprml/list/story/text/paragraph" />
+                </entity>
+        </document>
+</dataConfig>

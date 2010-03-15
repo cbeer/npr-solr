@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>AJAX Solr</title>
+  <link rel="stylesheet" type="text/css" href="http://evolvingweb.github.com/ajax-solr/examples/reuters/css/reuters.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="npr.css" media="screen" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/npr.js"></script>
+  <script type="text/javascript" src="http://github.com/evolvingweb/ajax-solr/raw/master/core/Core.js"></script>
+  <script type="text/javascript" src="http://github.com/evolvingweb/ajax-solr/raw/master/core/AbstractManager.js"></script>
+  <script type="text/javascript" src="http://github.com/evolvingweb/ajax-solr/raw/master/managers/Manager.jquery.js"></script>
+  <script type="text/javascript" src="http://github.com/evolvingweb/ajax-solr/raw/master/core/Parameter.js"></script>
+  <script type="text/javascript" src="http://github.com/evolvingweb/ajax-solr/raw/master/core/ParameterStore.js"></script>
+  <script type="text/javascript" src="http://github.com/evolvingweb/ajax-solr/raw/master/core/AbstractWidget.js"></script>
+  <script type="text/javascript" src="http://github.com/evolvingweb/ajax-solr/raw/master/core/AbstractFacetWidget.js"></script>
+  <script type="text/javascript" src="http://evolvingweb.github.com/ajax-solr/examples/reuters/widgets/ResultWidget.js"></script>
+  <script type="text/javascript" src="http://evolvingweb.github.com/ajax-solr/examples/reuters/widgets/CurrentSearchWidget.js"></script>
+  <script type="text/javascript" src="js/widgets/TagcloudWidget.js"></script>
+  <script type="text/javascript" src="js/widgets/TagcloudDateWidget.js"></script>
+  <script type="text/javascript" src="http://evolvingweb.github.com/ajax-solr/examples/reuters/widgets/TextWidget.js"></script>
+  <script type="text/javascript" src="http://evolvingweb.github.com/ajax-solr/lib/widgets/jquery/PagerWidget.js"></script>
+  <script type="text/javascript" src="js/npr.theme.js"></script>
+  <script type="text/javascript" src="http://github.com/evolvingweb/ajax-solr/raw/master/helpers/jquery/ajaxsolr.theme.js"></script>
+  <script type="text/javascript" src="http://evolvingweb.github.com/ajax-solr/examples/reuters/js/jquery.livequery.js"></script>
+</head>
+<body>
+  <div id="wrap"> 
+    <div id="header">
+      <h1>AJAX Solr Demonstration</h1>
+      <h2>Browse NPR/solr</h2>
+    </div>
+
+    <div class="right">
+      <div id="result">
+        <div id="navigation">
+          <ul id="pager"></ul>
+          <div id="pager-header"></div>
+        </div>
+        <div id="docs"></div>
+      </div>
+    </div>
+
+    <div class="left">
+
+      <h2>Search</h2>
+      <form id="search" onsubmit="Manager.store.addByValue('q', $('#query').val()); Manager.doRequest(); return false;">
+        <input type="text" value="*:*" id="query" name="query"/>
+	<input type="submit" />
+      </form>
+
+<div id="selection"></div>
+<h2>Show</h2>
+ <div id="show"></div>
+<h2>Category</h2>
+ <div id="category"></div>
+<h2>Byline</h2>
+ <div id="author"></div>
+<h2>Organization</h2>
+ <div id="organization"></div>
+<h2>Last Modified</h2>
+<div id="last_modified"></div>
+
+
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>  
+</body>
+</html>
